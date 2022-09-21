@@ -12,11 +12,9 @@ import (
 	"github.com/hairyhenderson/go-fsimpl/awssmfs"
 	"github.com/hairyhenderson/go-fsimpl/awssmpfs"
 	"github.com/hairyhenderson/go-fsimpl/blobfs"
-	"github.com/hairyhenderson/go-fsimpl/consulfs"
 	"github.com/hairyhenderson/go-fsimpl/filefs"
 	"github.com/hairyhenderson/go-fsimpl/gitfs"
 	"github.com/hairyhenderson/go-fsimpl/httpfs"
-	"github.com/hairyhenderson/go-fsimpl/vaultfs"
 )
 
 //nolint:gochecknoglobals
@@ -34,11 +32,9 @@ func Lookup(u string) (fs.FS, error) {
 		mux.Add(awssmfs.FS)
 		mux.Add(awssmpfs.FS)
 		mux.Add(blobfs.FS)
-		mux.Add(consulfs.FS)
 		mux.Add(filefs.FS)
 		mux.Add(gitfs.FS)
 		mux.Add(httpfs.FS)
-		mux.Add(vaultfs.FS)
 	})
 
 	return mux.Lookup(u)
